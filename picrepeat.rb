@@ -5,8 +5,8 @@ include Magick
 
 file ="pic/img.png"
 
-width = 2
-height = 2
+width = 3
+height = 4
 
 image = Image.read(file).first
 
@@ -19,7 +19,7 @@ newimg = Image.new(newimg_width, newimg_height)
 (0..image.rows - 1).each do |y|
   (0..image.columns - 1).each do |x|
 
-    newimg.composite!(image,x * image.columns,y * image.rows,OverCompositeOp)
+    newimg.composite!(image.rotate!(90),x * image.columns,y * image.rows,OverCompositeOp)
   end
 end
 
